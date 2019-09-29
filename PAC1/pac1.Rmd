@@ -1,0 +1,72 @@
+---
+title: "PAC1"
+author: "Carlos A. García"
+date: "September 29, 2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# I Premi de Periodisme de Dades
+## Criteris objectius per analitzar/seleccionar treballs periodístics
+
+El periodisme de dades utilitza com a matèria primera les dades. A més té, o pot tenir, una sèrie de característiques:
+\begin{enumerate}
+	\item \textbf{Periodisme d’investigació.} Prestant especial atenció a l’extracció i tractament de les dades.
+	\item \textbf{Periodisme de precisió.} Hi ha qui considera el periodisme de dades com una evolució del periodisme de precisió; comparteixen l’ús de tècniques matemàtiques o estadístiques, per exemple.
+	\item \textbf{Documentació periodística.} És evident que les fonts digitals (públiques o no) s’han convertit en una font més de coneixement periodístic.
+	\item \textbf{Infografia.} La visualització de les dades és una part molt important del tractament de dades. Una correcta visualització afavoreix l’enteniment de la història.
+	\item \textbf{Fact  checking.} Les dades ajuden a comprovar la veracitat de les notícies.
+	\item \textbf{Open data i big data.} La irrupció d’aquests dos moviments han situat en aquests moments les dades en el centre del paradigma de la informació. Tractar grans quantitats de dades i obrir-les ajuda a que terceres parts puguin avançar sobre un camí ja fet.
+\end{enumerate}
+
+Per això, es proposen com a criteris objectius de selecció:
+
+\begin{enumerate}
+	\item \textbf{Dades obertes i accessibles.} Les dades han de poder ser accedides de forma pública; a ser possible, automatitzable. 
+	\item \textbf{La visualització de les dades ha de ser gràfica i interactiva.} Es valorarà positivament la facilitat de navegació i comparacions entre diferents valors. 
+	\item \textbf{L’aplicació correcta i rigorosa de tècniques científiques i estadístiques sobre les dades.} És molt habitual treure conclusions a partir de tècniques estadístiques molt febles o que aporten molt poca informació o informació errònia. Les fonts de dades han de ser completes i no esbiaixades.     
+	\item \textbf{Aportació de nous punts de vista sobre el tema tractat.} Es valorarà positivament que les dades evidenciïn la realitat des d’una visió alternativa.  
+	\item \textbf{Utilitat social.} El treball periodístic ha de seguir la màxima d’aportar coneixement útil a la ciutadania. De la mateixa manera, es valorarà la fiscalització del poder en qualsevol de les seves formes.
+\end{enumerate}
+
+## Categories
+
+\begin{enumerate}
+  \item \textbf{Millor treball social.} Es premiarà el treball periodístic que més beneficiï a la població, tenint en compte:
+  \begin{enumerate}
+    \item Ha d’aportar dades sobre el tema que evidenciïn el problema existent.
+    \item Les fonts han de ser completes i rigoroses.
+    \item El resultat del treball periodístic ha de tenir la capacitat de ser d’utilitat a la població.
+  \end{enumerate}
+  
+  Proposta de premi: Civio, per “Que las ayudas públicas lleguen a quienes más las necesitan\footnote{https://civio.es/acceso-a-bono-social/}” 
+  
+  Raons:
+  \begin{enumerate}
+    \item Es fa un tractament rigorós de les dades, tot i que es deixa clar que es tracta d'estimacions \footnote{https://civio.es/el-boe-nuestro-de-cada-dia/2018/06/27/casi-dos-millones-de-hogares-perderan-en-octubre-el-bono-social-si-no-se-acogen-al-nuevo-modelo/}
+    \item Informen d'una realitat social, evitant que la manca de coneixement sigui un obstacle
+    \item S'ha creat un punt únic on es pot consultar tota la informació\footnote{https://civio.es/acceso-a-bono-social/}.
+  \end{enumerate}
+
+  \item \textbf{Millor treball per la igualtat.} Es premiarà el treball periodístic que aporti dades i evidències per la igualtat de drets entre sexes, races, lloc de naixement, opcions sexuals o qualsevol altre criteri que pugui ser motiu de discriminació.
+  
+  Proposta de premi: Maldita.es, per "La percepción nos engaña: los españoles creen que hay el doble de población extranjera que la que en realidad hay\footnote{https://maldita.es/malditodato/la-percepcion-nos-engana-los-espanoles-creen-que-hay-el-doble-de-poblacion-extranjera-que-la-que-en-realidad-hay/}".
+
+  Raons:
+  \begin{enumerate}
+    \item Els responsables de l'article han comprovat amb nombres oficials el que és una creença establerta. 
+    \item Correcte ús de les dades, atenent a diverses fonts independents i oficials.
+    \item Ajuda a contextualitzar discursos polítics xenòfobs basats en el nombre d'immigrants, tant en situació regular com irregular. Aporta evidències que eviten l'ús manipulat d'aquestes dades.
+  \end{enumerate}
+  
+  \item \textbf{Millor treball per la privacitat a la Xarxa.} És evident que en l'actualitat es fa ús exhaustiu de dades privades sense el consentiment dels interessats. Xarxes socials, assistents personals, aplicacions de telèfon mòbil són només alguns exemples. Es premiarà el treball que evidenviï i denunciï aquestes pràctiques.
+  
+  Proposta de premi: "Facial recognition's 'dirty little secret': Millions of online photos scraped without consent\footnote{https://www.nbcnews.com/tech/internet/facial-recognition-s-dirty-little-secret-millions-online-photos-scraped-n981921}". 
+  
+  Raons:
+  
+  
+\end{enumerate}  
