@@ -51,7 +51,7 @@ Per això, es proposen com a criteris objectius de selecció:
     \item S'ha creat un punt únic on es pot consultar tota la informació\footnote{https://civio.es/acceso-a-bono-social/}.
   \end{enumerate}
 
-  \item \textbf{Millor treball per la igualtat.} Es premiarà el treball periodístic que aporti dades i evidències per la igualtat de drets entre sexes, races, lloc de naixement, opcions sexuals o qualsevol altre criteri que pugui ser motiu de discriminació.
+  \item \textbf{Millor treball per a la igualtat.} Es premiarà el treball periodístic que aporti dades i evidències per la igualtat de drets entre sexes, races, lloc de naixement, opcions sexuals o qualsevol altre criteri que pugui ser motiu de discriminació.
   
   Proposta de premi: Maldita.es, per "La percepción nos engaña: los españoles creen que hay el doble de población extranjera que la que en realidad hay\footnote{https://maldita.es/malditodato/la-percepcion-nos-engana-los-espanoles-creen-que-hay-el-doble-de-poblacion-extranjera-que-la-que-en-realidad-hay/}".
 
@@ -67,6 +67,28 @@ Per això, es proposen com a criteris objectius de selecció:
   Proposta de premi: "Facial recognition's 'dirty little secret': Millions of online photos scraped without consent\footnote{https://www.nbcnews.com/tech/internet/facial-recognition-s-dirty-little-secret-millions-online-photos-scraped-n981921}". 
   
   Raons:
+  \begin{enumerate}
+    \item \textbf{Tractament exhaustiu de la informació.} Els responsables no s'han conformat amb posar uns quants exemples: tracten una base de dades de més de 900.000 registres.
+    \item \textbf{formació personalitzada i útil:} qualsevol usuari pot saber si IBM ha tractat el seu perfil.
+    \item \textbf{Posa de manifest una realitat:} qualsevol informació pot ser emprada per tercers sense el nostre coneixement.
+  \end{enumerate}
   
+  \item \textbf{Canvi climàtic.} Es premiarà el treball periodístic que aporti evidències sobre el canvi climàtic o les seves conseqüències.
+  Proposta de premi: NYTimes, per "How Much Hotter Is Your Hometown Than When You Were Born?\footnote{https://www.nytimes.com/interactive/2018/08/30/climate/how-much-hotter-is-your-hometown.html}".
+  Raons:
+  \begin{enumerate}
+    \item La web mostra amb una eina de visualització el \textbf{nombre de dies amb més de 32ºC a qualsevol zona del món a varis moments}: l'any de naixement de l'usuari, a l'actualitat i la previsió  a futur. 
+    \item \textbf{Es fa visible}, de forma molt intuitiva, \textbf{quin efecte tendrà el canvi climàtic} a la zona de l'usuari; això ho fa més evident.
+    \item Les \textbf{tècniques estadístiques són rigoroses}: en tot moment tracta rangs i no dades concretes.
+  \end{enumerate}
   
+  \item \textbf{Fronteres del món.} Es premiarà el treball periodístic que exposi de forma clara i contundent l'efecte del tancament de fronteres arreu el món. 
+  
+  Proposta de premi: "3,121 desperate journeys Exposing a week of chaos under Trump's zero tolerance\footnote{https://www.theguardian.com/us-news/ng-interactive/2018/oct/14/donald-trump-zero-tolerance-policy-special-investigation-immigrant-journeys}"
+  Raons:
+  \begin{enumerate}
+    \item La \textbf{informació} mostrada és \textbf{especialmente exhaustiva}. Mostra l'efecte del tancament de fronteres una setmana per part del govern dels Estats Units des de multitud  de punts de vista.
+    \item Les \textbf{infografies} mostrades són molt \textbf{intuitives}, aportant gran quantitat d'informació. 
+    \item L'article se correspon amb un \textbf{esforç conscient per part del diari d'aportar transparència a una política d'opacitat} per part del govern del Estats Units. Es valora positivament la tasca de fiscalització del poder. 
+  \end{enumerate}
 \end{enumerate}  
