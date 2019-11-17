@@ -1,0 +1,58 @@
+---
+title: "Disseny article periodístic"
+author: "Carlos A. García"
+date: "October 13, 2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Cal aportar en aquesta argumentació al Consell de Redacció:
+
+#Tema: enfocament i context. Argumentar el tema periodístic novedós i silenciat. No publicat. 
+
+Tema: preu de l'habitatge de lloguer per zona geogràfica
+
+Enfocament: 
+
+Context: 
+\begin{enumerate}
+\item No existeixen dades fiables dels preus dels lloguers
+\item Els articles periodístics actuals que he trobat resumeixen el preu per metre quadrat, sense estudiar l'afectació d'altres característiques (nombre d'habitacions, estat de l'habitatge, etc.).
+\item Les dades proporcionades són dels preus que se demanen per lloguer, no dels que finalment se paguen. Tenint la data en que es publica un lloguer ens ajudaria a validar si realment és un preu real o és un preu sobredimensionat.
+\end{enumerate}
+
+Fonts: 
+\begin{enumerate}
+\item https://www.pisos.com/aldia/que-datos-debe-ofrecer-una-estadistica-oficial-del-alquiler/1627273/
+\item https://cincodias.elpais.com/cincodias/2019/10/11/album/1570794955\_313018.html
+\item https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/
+\end{enumerate}
+
+
+#Hipòtesi: què volem aportar i on volem anar a parar
+
+Volem aproximam-mos a una imatge més real del preu dels lloguers; actualment s'estan tractant com a iguals conjunts de dades molt diferents: el preu del lloguer depèn de múltiples característiques que no es publiquen (habitacions, estat de l'habitatge, ascensor, ...).
+
+Si obtenim els anuncis de lloguer més la data de publicació, tendrem una imatge més real:
+
+\begin{enumerate}
+\item Si un anunci té molt de temps, el seu preu no s'adequa a la realitat del mercat.
+\item Si tenim l'evolució dels preus ens acostarem més a uns valors fidedignes
+\end{enumerate}
+#Estil: justificar perquè utilitzem el periodisme de dades 
+
+En aquest cas és evident: 
+
+\begin{enumerate} 
+\item Tot es basa en dades. Sense elles, no tenim una visió objectiva de la realitat.
+\item Navegar per les característiques ens permetrà veure com afecta al preu.
+\end{enumerate}
+
+#Fonts d’informació: exposar la relació de fonts i justificació, què s’obtindrà de cada una d’elles. 
+
+Per ara he estat investigant idealista.com; el plan és, mitjançant web scrapping, capturar la múltiple informació que tenen de cada habitatge.
+
+Les altres webs que he visitat són més complicades de tractar; estic cercant més fonts d'informació.
