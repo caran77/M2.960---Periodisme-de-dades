@@ -1,0 +1,74 @@
+---
+title: "rentHousesInfo"
+author: "Carlos A. García"
+date: "November 19, 2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(ggplot2)
+```
+
+Llegim el document:
+
+```{r llegir el document}
+rentHousesInfo <- read.csv2("dataOutput.csv", header = TRUE, sep = ";", dec = ".")
+summary(rentHousesInfo)
+```
+
+Mostrem la distribució de les variables categòriques:
+
+```{r, fig.width = 5, fig.height = 4}
+
+ggplot(rentHousesInfo, aes(x=factor(propertyType))) + 
+  labs(title="Distribució per tipus d'habitatge", x="Tipus", y = "Nombre d'habitatges")+
+  geom_bar(stat="count", width=0.7, fill="steelblue") +
+  ylim(0, 2500) +
+  geom_text(stat="count", aes(label=..count..), vjust=-0.5)
+
+ggplot(rentHousesInfo, aes(x=factor(status))) + 
+  labs(title="Distribució per l'estat de l'habitatge", x="Estat", y = "Nombre d'habitatges")+
+  geom_bar(stat="count", width=0.7, fill="steelblue") +
+  ylim(0, 3200) +
+  geom_text(stat="count", aes(label=..count..), vjust=-0.5)
+
+ggplot(rentHousesInfo, aes(x=factor(floor))) + 
+  labs(title="Distribució pel pis de l'habitatge", x="Pis", y = "Nombre d'habitatges")+
+  geom_bar(stat="count", width=0.7, fill="steelblue") +
+  ylim(0, 1500) +
+  geom_text(stat="count", aes(label=..count..), vjust=-0.5)
+
+ggplot(rentHousesInfo, aes(x=factor(hasLift))) + 
+  labs(title="Distribució depenent de si té ascensor", x="Ascensor?", y = "Nombre d'habitatges")+
+  geom_bar(stat="count", width=0.7, fill="steelblue") +
+  ylim(0, 3000) +
+  geom_text(stat="count", aes(label=..count..), vjust=-0.5)
+
+```
+
+```{r, fig.width = 6, fig.height = 8}
+ggplot(rentHousesInfo, aes(x=factor(municipality))) + 
+  labs(title="Distribució d'habitatges per municipi", x="Municipi", y = "Nombre d'habitatges")+
+  geom_bar(stat="count", width=0.1, fill="steelblue") +
+  ylim(0, 1500) +
+  geom_text(stat="count", aes(label=..count..), vjust=0.5, hjust=-0.5, size=2) + 
+  theme(axis.text.y = element_text(angle = 0, hjust = 0, size=8))+
+  coord_flip()
+
+```
+
+Si mostrem el nombre d'habitatges per preu, la gràfica no mostra res ja que hi ha massa dispersió. Llevant els outliers (preus superiors a la mitja + dues vegades la desviació estándar) podem veure la distribució de la majoria dels lloguers. 
+
+```{r variables no categòriques}
+rentHousesInfoPriceSD <- sd(rentHousesInfo$price)
+rentHousesInfoPriceMean <- mean(rentHousesInfo$price)
+
+rentHousesInfoWithoutOutliers <- filter(rentHousesInfo, price <= rentHousesInfoPriceMean + 2 * rentHousesInfoPriceSD)
+
+ggplot() +
+  xlab("Preu del lloguer") + ylab("Nombre de lloguers") + ggtitle("Nombre de lloguers per preu") +
+  geom_density(data=rentHousesInfoWithoutOutliers, aes(x = price), fill="steelblue")
+
+```
