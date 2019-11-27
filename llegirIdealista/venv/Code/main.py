@@ -9,7 +9,7 @@ def getField(objeto, campo):
     if campo in objeto:
         return (str(objeto[campo]).replace('🏖', ''))
     else:
-        return ('')
+        return ('NA')
 
 def getFieldNames() -> object:
     fieldnames = [

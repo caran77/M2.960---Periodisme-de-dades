@@ -9,13 +9,35 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(ggplot2)
+library(corrplot)
 ```
 
-Llegim el document:
+Llegim el document i mostrem el resum numèric de les variables:
 
-```{r llegir el document}
+```{r llegir el document i crear noves variables}
 rentHousesInfo <- read.csv2("dataOutput.csv", header = TRUE, sep = ";", dec = ".")
+rentHousesInfo$pricePerMeter <- rentHousesInfo$price / rentHousesInfo$size
+rentHousesInfo$priceRang <- floor(rentHousesInfo$price / 1000) * 1000 + 1000
+rentHousesInfo$priceRangString <- toString(rentHousesInfo$priceRang)
+rentHousesInfoPalma <- filter(rentHousesInfo, municipality == 'Palma de Mallorca') 
 summary(rentHousesInfo)
+```
+Podem veure de forma intuitiva la distribució dels lloguers a les Illes Balears pintant un punt per cada coodenada de lloguer (el color indica el rang de preu):
+
+```{r, fig.width = 6, fig.height = 8}
+ggplot(rentHousesInfo, aes(longitude, latitude)) + 
+  labs(title="Distribució de lloguers", x="Longitud", y = "Latitud") +
+  geom_point(size=0.1, aes(colour = factor(priceRang)))
+```
+
+Es pot veure com els lloguers de Mallorca es concentren a Palma i a la costa; els d'Eivissa a la costa est i sub-oest; pràcticament no existeix ni a Menorca (més enllà de Ciutadella) ni a Formentera (només 2 habitatges). Sembla que els lloguers per Internet funcionen més a les zones úrbanes i turístiques. Tot indica que els lloguers a poble funcionen més de forma tradicional.
+
+Si ens acostem a Palma, podem veure com la majoria dels lloguers es concentren al centre i a la costa:
+
+```{r, fig.width = 6, fig.height = 8}
+ggplot(rentHousesInfoPalma, aes(longitude, latitude)) + 
+  labs(title="Distribució de lloguers a Palma", x="Longitud", y = "Latitud") +
+  geom_point(size=0.1, aes(colour = factor(priceRang))) 
 ```
 
 Mostrem la distribució de les variables categòriques:
@@ -46,7 +68,21 @@ ggplot(rentHousesInfo, aes(x=factor(hasLift))) +
   ylim(0, 3000) +
   geom_text(stat="count", aes(label=..count..), vjust=-0.5)
 
+ggplot(rentHousesInfo, aes(x=factor(rooms))) + 
+  labs(title="Distribució depenent del nombre d'habitacions", x="Nombre d'habitacions", y = "Nombre d'habitatges")+
+  geom_bar(stat="count", width=0.7, fill="steelblue") +
+  ylim(0, 1500) +
+  geom_text(stat="count", aes(label=..count..), vjust=-0.5)
+
+ggplot(rentHousesInfo, aes(x=factor(bathrooms))) + 
+  labs(title="Distribució depenent del nombre de banys", x="Nombre de banys", y = "Nombre d'habitatges")+
+  geom_bar(stat="count", width=0.7, fill="steelblue") +
+  ylim(0, 2000) +
+  geom_text(stat="count", aes(label=..count..), vjust=-0.5)
+
 ```
+
+Nombre de lloguers per municipi(val a dir que no tots els municipis són correcte; per exemple, Cala Rajada no és un municipi):
 
 ```{r, fig.width = 6, fig.height = 8}
 ggplot(rentHousesInfo, aes(x=factor(municipality))) + 
@@ -56,19 +92,46 @@ ggplot(rentHousesInfo, aes(x=factor(municipality))) +
   geom_text(stat="count", aes(label=..count..), vjust=0.5, hjust=-0.5, size=2) + 
   theme(axis.text.y = element_text(angle = 0, hjust = 0, size=8))+
   coord_flip()
-
 ```
 
-Si mostrem el nombre d'habitatges per preu, la gràfica no mostra res ja que hi ha massa dispersió. Llevant els outliers (preus superiors a la mitja + dues vegades la desviació estándar) podem veure la distribució de la majoria dels lloguers. 
+Si mostrem el nombre d'habitatges per preu, la gràfica no mostra res ja que hi ha massa dispersió. Llevant els outliers (preus superiors a la mitja + dues vegades la desviació estándar) podem veure la distribució de la majoria dels lloguers. De fet, les dades són més correctes: hi ha lloguers alts que el que indiquen és el preu per a tota la temporada\footnote{https://www.idealista.com/inmueble/84555611/}.
+Passa el mateix amb el tamany dels habitatges. Hi ha finques molt grans que desvirtuen les estadístiques generals; mostrem les dades eliminant els outliers.
 
 ```{r variables no categòriques}
 rentHousesInfoPriceSD <- sd(rentHousesInfo$price)
 rentHousesInfoPriceMean <- mean(rentHousesInfo$price)
-
 rentHousesInfoWithoutOutliers <- filter(rentHousesInfo, price <= rentHousesInfoPriceMean + 2 * rentHousesInfoPriceSD)
 
 ggplot() +
   xlab("Preu del lloguer") + ylab("Nombre de lloguers") + ggtitle("Nombre de lloguers per preu") +
   geom_density(data=rentHousesInfoWithoutOutliers, aes(x = price), fill="steelblue")
 
+rentHousesInfoSizeSD <- sd(rentHousesInfo$size)
+rentHousesInfoSizeMean <- mean(rentHousesInfo$size)
+rentHousesInfoWithoutOutliersSize <- filter(rentHousesInfo, price <= rentHousesInfoSizeMean + 2 * rentHousesInfoSizeSD)
+ggplot() +
+  xlab("Tamany de l'habitatge") + ylab("Nombre de lloguers") + ggtitle("Nombre de lloguers per tamany de l'habitatge") +
+  geom_density(data=rentHousesInfoWithoutOutliersSize, aes(x = size), fill="steelblue")
+
+rentHousesInfoPrizeMeterSD <- sd(rentHousesInfo$pricePerMeter)
+rentHousesInfoPrizeMeterMean <- mean(rentHousesInfo$pricePerMeter)
+rentHousesInfoPrizeMeterWithoutOutliers <- filter(rentHousesInfo, pricePerMeter <= rentHousesInfoPrizeMeterMean + 2 * rentHousesInfoPrizeMeterSD)
+ggplot() +
+  xlab("Preu per metre quadrat") + ylab("Nombre de lloguers") + ggtitle("Nombre de lloguers per preu per metre quadrat") +
+  geom_density(data=rentHousesInfoPrizeMeterWithoutOutliers, aes(x = pricePerMeter), fill="steelblue")
+
+rentHousesInfoNum <- select(rentHousesInfo, price, numPhotos, size, rooms, bathrooms)
+cor(rentHousesInfoNum)
+linearMod <- lm(price ~ numPhotos + size + rooms + bathrooms, data=rentHousesInfo)
+summary(linearMod)
+linearModPT <- lm(price ~ propertyType, data=rentHousesInfo)
+summary(linearModPT)
+linearModFloor <- lm(price ~ floor, data=rentHousesInfo)
+summary(linearModFloor)
+linearModDi <- lm(price ~ district, data=rentHousesInfo)
+summary(linearModDi)
+linearModMu <- lm(price ~ municipality, data=rentHousesInfo)
+summary(linearModMu)
+
+ncol(rentHousesInfo)
 ```
